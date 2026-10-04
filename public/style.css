@@ -99,7 +99,7 @@ body {
     margin: -1.5rem -1rem 1.5rem;   /* cancels the body padding so it spans the full width */
     border-radius: 0 0 24px 24px;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
-    background: linear-gradient(135deg, var(--green), var(--green-dark));
+    background: var(--green-dark);
 }
 
 .pageHeader h1 {
