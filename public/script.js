@@ -205,7 +205,7 @@ async function loadSightings(){
                         document.getElementById("backdrop").className = "";
                         inspectSighting = false;
                     },
-                    textContent: "⬅ back"
+                    textContent: "back"
                 })
                 enlargedSighting.appendChild(backButton);
 
@@ -264,7 +264,7 @@ document.getElementById('speciesForm').addEventListener('submit', async (event) 
 
     const image = formData.get("imageInput");
     const blob = await shrinkImage(image);
-    formData.set("imageInput", blob, "photo.jpeg");
+    formData.set("imageInput", blob, "photo.jpeg"); //this is renamed on the backend before storing
 
     event.target.reset();
     imagePreview.hidden = true;
@@ -294,7 +294,7 @@ document.getElementById('speciesForm').addEventListener('submit', async (event) 
 
 
 
-
+                                                   
 
 
 
