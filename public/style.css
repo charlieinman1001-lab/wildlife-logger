@@ -270,7 +270,7 @@ body {
 .enlargedSightingBackButton{
     background: var(--green);
     padding: 0.25em;
-    border-radius: 5px;
+    border-radius: 12px;
 
     width: 75px;
     height: 25px;
@@ -341,7 +341,7 @@ body {
     .enlargedThumbnail{
         height: 100%;
         width: auto;
-        margin: 0px auto auto 0px;
+        margin: 0px 10px auto 0px;
     }
 
     .enlargedSighting{
@@ -353,6 +353,7 @@ body {
 
     .enlargedSightingCaption{
         margin: 0px auto 0px 0px;
+        font-size: 32px;
     }
 
     .enlargedSightingBackButton{

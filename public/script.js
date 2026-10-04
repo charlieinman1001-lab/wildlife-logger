@@ -139,7 +139,7 @@ async function loadSightings(){
 
     markers.clearLayers();
     allSightings.forEach(element => {
-        L.marker([element.latitude, element.longitude]).addTo(markers).bindPopup(`<p>${element.species}</p> <img style="width: 115px; border-radius: 5px;"src="/uploads/${element.image}">`)
+        L.marker([element.latitude, element.longitude]).addTo(markers).bindPopup(`<p>${element.species}</p> <img style="width: 130px; border-radius: 5px; margin:auto;"src="/uploads/${element.image}">`)
         
         const li = document.createElement("li");
         li.className = "sighting";
@@ -154,7 +154,7 @@ async function loadSightings(){
         li.appendChild(thumbnail);
 
         const sightingLabel = document.createElement("p");  //add label for sighting
-        sightingLabel.textContent = `${element.species} (${element.kind})`;
+        sightingLabel.textContent = `${element.species}`;
         sightingLabel.className = "sightingLabel";
         li.appendChild(sightingLabel);
     
@@ -192,7 +192,7 @@ async function loadSightings(){
                 const enlargedCaption = document.createElement("h2"); ////add caption to enlarged sighting
                 Object.assign(enlargedCaption, {
                     className: "enlargedSightingCaption",
-                    textContent: `${element.species} (${element.kind})`
+                    textContent: `${element.species}`
                 })
                 enlargedSighting.appendChild(enlargedCaption);
 
