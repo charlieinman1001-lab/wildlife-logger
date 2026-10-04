@@ -45,6 +45,20 @@ async function fetchAllSightings(){
 }
 
 
+
+
+
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/serviceWorker.js');
+}
+
+
+
+
+
+
+
 let inspectSighting = false;
 
 
