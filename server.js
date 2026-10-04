@@ -23,7 +23,6 @@ db.pragma('journal_mode = WAL') //set mode to write-ahead logging instead of deg
 
 
 
-
 const upload = multer({
   storage: multer.diskStorage({
     destination: UPLOADS_DIR,
