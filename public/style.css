@@ -217,16 +217,17 @@ body {
 }
 
 .enlargedSighting{
+    width: 88%;
+    aspect-ratio: 16/9;
+
     box-sizing: border-box;
     position: fixed;
     inset: 0;
     margin: auto;
 
-    width: 80%;
-    height: 80%;
 
-    max-height: 700px;
-    max-width: 1000px;
+    max-height: 600px;
+    max-width: 400px;
 
     padding: 1.5rem;
 
@@ -254,6 +255,7 @@ body {
 }
 
 .enlargedThumbnail{
+    box-sizing: border-box;
     width: 100%;
     height: auto;
     margin: 0px auto 0px auto;
