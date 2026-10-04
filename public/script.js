@@ -205,7 +205,7 @@ async function loadSightings(){
                         document.getElementById("backdrop").className = "";
                         inspectSighting = false;
                     },
-                    textContent: "exit ×"
+                    textContent: "⬅ back"
                 })
                 enlargedSighting.appendChild(backButton);
 
