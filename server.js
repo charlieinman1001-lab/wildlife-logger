@@ -15,6 +15,8 @@ const DATA_DIR = process.env.DATA_DIR || __dirname; ////grab DATA_DIR from rende
 const UPLOADS_DIR = path.join(DATA_DIR, 'uploads');
 const DB_FILE = path.join(DATA_DIR, 'sightings.db');
 
+console.log('DATA_DIR:', DATA_DIR, 'DB_FILE:', DB_FILE);
+
 fs.mkdirSync(UPLOADS_DIR, { recursive: true });
 
 const db = new Database(DB_FILE) //open (or create if not already) the database 
