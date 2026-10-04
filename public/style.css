@@ -7,7 +7,7 @@
 
 body {
     font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
-    background: var(--bg);
+    background: var(--green);
     margin: 0;
     padding: 1.5rem 1rem;
 }
