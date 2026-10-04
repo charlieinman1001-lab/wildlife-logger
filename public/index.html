@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <title>Wildlife Logger</title>
+</head>
+<body>
+    <div id="backdrop"></div>
+    <header class="pageHeader">
+        <h1>Wildlife Logger</h1>
+    </header>
+
+    <main id="layout">
+        <form id="speciesForm">
+            <label for="speciesInput">Log new species:</label>
+            <input type="text" id="speciesInput" name="speciesInput" autocomplete="off" required><br>
+
+
+            <fieldset class="toggle">
+            <legend class="visually-hidden">Type</legend>
+
+            <input type="radio" name="kind" id="kind-flora" value="flora" checked>
+            <label for="kind-flora">Flora</label>
+
+            <input type="radio" name="kind" id="kind-fauna" value="fauna">
+            <label for="kind-fauna">Fauna</label>
+
+            <span class="thumb"></span>
+            </fieldset>
+
+
+            <input type="file" id="imageInput" accept="image/*" name="imageInput" required>
+            <img id="imagePreview" alt="Photo Preview" hidden>
+
+            <input type="submit" value="Submit" id="submitSightingButton">
+            <div id="loader"></div>
+        </form>
+
+        <div id="map"></div>
+
+        <div id="sightingsListContainer">
+            All sightings:
+            <ul id="sightingsList" style="padding: 0px;"></ul>
+        </div>
+
+
+
+    </main>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+    <script src="script.js" defer></script>
+
+</body>
+</html>
