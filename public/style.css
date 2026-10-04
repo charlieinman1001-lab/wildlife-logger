@@ -178,7 +178,7 @@ body {
     max-width: 420px;
     max-height: 500px;
     margin: 0 auto;
-    padding: 1.5rem;
+    padding: 1rem;
     background: #fff;
     border-radius: 12px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
@@ -188,6 +188,13 @@ body {
 
     overflow-y: scroll;
     overflow-x:hidden;
+}
+
+#sightingsListHeader{
+    margin-top: 0px;
+    font-weight: bold;
+    font-size: 25px;
+    text-align: center;
 }
 
 
@@ -210,6 +217,7 @@ body {
 }
 
 .enlargedSighting{
+    box-sizing: border-box;
     position: fixed;
     inset: 0;
     margin: auto;
@@ -217,7 +225,7 @@ body {
     width: 80%;
     height: 80%;
 
-    max-height: 800px;
+    max-height: 700px;
     max-width: 1000px;
 
     padding: 1.5rem;
@@ -246,10 +254,10 @@ body {
 }
 
 .enlargedThumbnail{
-    width: 85%;
+    width: 100%;
     height: auto;
     margin: 0px auto 0px auto;
-    border-radius: 5px;
+    border-radius: 10px;
 
 }
 
@@ -399,6 +407,7 @@ body {
   margin: 0;
   background: #ddd;
   border-radius: 999px;
+
 }
 
 /* hide the real radios but keep them focusable and submittable */

@@ -16,6 +16,19 @@ function getLocation() {
 }
 
 
+
+document.addEventListener('visibilitychange', () => { //refresh sightings if leaving app and coming back on
+  if (!document.hidden) loadSightings();
+});
+
+
+
+
+
+
+
+
+
 async function shrinkImage(file, maxSize = 1024, targetBytes = 120 * 1024) {
   const bitmap = await createImageBitmap(file);
   const scale = Math.min(1, maxSize / Math.max(bitmap.width, bitmap.height));
@@ -126,7 +139,7 @@ async function loadSightings(){
 
     markers.clearLayers();
     allSightings.forEach(element => {
-        L.marker([element.latitude, element.longitude]).addTo(markers).bindPopup(`<p>${element.species}</p> <img style="width: 175px; border-radius: 5px;"src="/uploads/${element.image}">`)
+        L.marker([element.latitude, element.longitude]).addTo(markers).bindPopup(`<p>${element.species}</p> <img style="width: 115px; border-radius: 5px;"src="/uploads/${element.image}">`)
         
         const li = document.createElement("li");
         li.className = "sighting";
