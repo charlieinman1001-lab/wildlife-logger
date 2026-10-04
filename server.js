@@ -11,14 +11,22 @@ app.use(express.json()); // lets backend read JSON sent from the browser
 
 
 
+const DATA_DIR = process.env.DATA_DIR || __dirname; ////grab DATA_DIR from render, otherwise __dirname is the fallback
+const UPLOADS_DIR = path.join(DATA_DIR, 'uploads');
+const DB_FILE = path.join(DATA_DIR, 'sightings.db');
+
+fs.mkdirSync(UPLOADS_DIR, { recursive: true });
+
+const db = new Database(DB_FILE) //open (or create if not already) the database 
+db.pragma('journal_mode = WAL') //set mode to write-ahead logging instead of degault rollback journal
 
 
-const uploadDir = path.join(__dirname, 'uploads');   ////creates the folder at the given directory
-fs.mkdirSync(uploadDir, { recursive: true });
+
+
 
 const upload = multer({
   storage: multer.diskStorage({
-    destination: uploadDir,
+    destination: UPLOADS_DIR,
     filename: (req, file, cb) =>
       cb(null, Date.now() + '-' + Math.round(Math.random() * 1e6) + path.extname(file.originalname))
   }),
@@ -26,16 +34,11 @@ const upload = multer({
   fileFilter: (req, file, cb) => cb(null, file.mimetype.startsWith('image/'))
 });
 
-app.use('/uploads', express.static(uploadDir));
+app.use('/uploads', express.static(UPLOADS_DIR));
 
 
 
 
-
-
-
-const db = new Database(path.join(__dirname, 'sightings.db')) //open (or create if not already) the database 
-db.pragma('journal_mode = WAL') //set mode to write-ahead logging instead of degault rollback journal
 
 
 
@@ -105,13 +108,15 @@ app.delete('/api/sightings/:id', (req, res) => {
     removeSighting.run(id);
 
     if (row.image) {
-    fs.unlink(path.join(uploadDir, path.basename(row.image)), () => {});   // delete the photo too
+    fs.unlink(path.join(UPLOADS_DIR, path.basename(row.image)), () => {});   // delete the photo too
     }
 
     res.status(204).end();
 })
 
 
+let port = process.env.PORT || 3000;
 
 
-app.listen(3000, () => console.log('Running on http://localhost:3000'));
+
+app.listen(port);
