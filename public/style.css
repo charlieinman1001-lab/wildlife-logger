@@ -197,7 +197,7 @@ body {
 #sightingsBrowserInput{
     width: 80%;
     height: 36px;
-    margin: auto;
+    margin: 0px auto 10px;
 }
 
 
