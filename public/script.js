@@ -119,7 +119,7 @@ async function setSighting(formData){
 }
 
 
-const map = L.map('map').setView([51.89, 0.9067], 12);
+const map = L.map('map').setView([51.89, 0.9067], 10);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 maxZoom: 20,
 attribution: '&copy; OpenStreetMap contributors'
