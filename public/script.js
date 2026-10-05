@@ -142,7 +142,7 @@ async function loadSightings(){
     const searchValue = document.getElementById("sightingsBrowserInput").value.trim().toLowerCase();
 
     allSightings.forEach(element => {
-        if(!(element.species.includes(searchValue))){ //only show sightings which match search input
+        if(!(element.species.toLowerCase().includes(searchValue))){ //only show sightings which match search input
             return
         }
 
