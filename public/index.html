@@ -21,7 +21,7 @@
     <main id="layout">
         <form id="speciesForm">
             <label for="speciesInput">Log new species:</label>
-            <input type="text" id="speciesInput" name="speciesInput" maxlength="30" autocomplete="off" required><br>
+            <input type="text" id="speciesInput" class="textInput" name="speciesInput" maxlength="30" autocomplete="off" required><br>
 
 
             <fieldset class="toggle">
@@ -44,11 +44,15 @@
             <div id="loader"></div>
         </form>
 
-        <div id="map"></div>
-
-        <div id="sightingsListContainer">
+        <div id="sightingsBrowser">
             <span id="sightingsListHeader">Sightings Browser</span>
-            <ul id="sightingsList" style="padding: 0px;"></ul>
+            <div id="map"></div>
+
+            <input type="text" id="sightingsBrowserInput" class="textInput" placeholder="e.g. Frog">
+            <div id="sightingsListContainer">
+                <ul id="sightingsList" style="padding: 0px;"></ul>
+            </div>
+
         </div>
 
 

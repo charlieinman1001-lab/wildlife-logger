@@ -138,9 +138,17 @@ async function loadSightings(){
 
 
     markers.clearLayers();
+
+    const searchValue = document.getElementById("sightingsBrowserInput").value.trim().toLowerCase();
+
     allSightings.forEach(element => {
+        if(!(element.species.includes(searchValue))){ //only show sightings which match search input
+            return
+        }
+
         L.marker([element.latitude, element.longitude]).addTo(markers).bindPopup(`<p>${element.species}</p> <img style="width: 130px; border-radius: 5px; margin:auto;"src="/uploads/${element.image}">`)
-        
+
+
         const li = document.createElement("li");
         li.className = "sighting";
 
@@ -173,8 +181,6 @@ async function loadSightings(){
 
         thumbnail.addEventListener('click', (event) =>{ //create enlarged sighting view
             if(!inspectSighting){
-                console.log("sighting clicked")
-
                 document.getElementById("backdrop").className = "backdrop";
 
                 inspectSighting = true;
@@ -228,6 +234,9 @@ async function loadSightings(){
 
     });    
 
+    if(sightingsList.innerHTML == ""){
+        sightingsList.textContent = "there are no results matching this search"
+    }
     
 }
 
@@ -288,6 +297,9 @@ document.getElementById('speciesForm').addEventListener('submit', async (event) 
     loadSightings();
     loaderElement.classList.remove("loader");
 })
+
+
+document.getElementById("sightingsBrowserInput").addEventListener('input', loadSightings)
 
 
 
