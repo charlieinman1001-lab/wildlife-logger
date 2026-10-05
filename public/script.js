@@ -133,7 +133,7 @@ const markers = L.layerGroup().addTo(map);  //markers layer group
 async function loadSightings(){ 
     const allSightings = await fetchAllSightings();
 
-    const sightingsList = document.getElementById("sightingsList");
+    const sightingsList = document.getElementById("sightingsListContainer");
     sightingsList.innerHTML = "";
 
 
@@ -149,8 +149,8 @@ async function loadSightings(){
         L.marker([element.latitude, element.longitude]).addTo(markers).bindPopup(`<p>${element.species}</p> <img style="width: 130px; border-radius: 5px; margin:auto;"src="/uploads/${element.image}">`)
 
 
-        const li = document.createElement("li");
-        li.className = "sighting";
+        const div = document.createElement("div");
+        div.className = "sighting";
 
 
         const thumbnail = document.createElement("img")  ////add thumbnail to each sighting
@@ -159,23 +159,23 @@ async function loadSightings(){
             className: 'sightingThumbnail',
             alt: `${element.species} thumbnail`
         });
-        li.appendChild(thumbnail);
+        div.appendChild(thumbnail);
 
         const sightingLabel = document.createElement("p");  //add label for sighting
         sightingLabel.textContent = `${element.species}`;
         sightingLabel.className = "sightingLabel";
-        li.appendChild(sightingLabel);
+        div.appendChild(sightingLabel);
     
 
-        const deleteSightingButton = document.createElement("button"); //add delete button
-        Object.assign(deleteSightingButton, {
-            className: "deleteSightingButton",
-            textContent: "×"
-        })
-        li.appendChild(deleteSightingButton);
+        // const deleteSightingButton = document.createElement("button"); //add delete button
+        // Object.assign(deleteSightingButton, {
+        //     className: "deleteSightingButton",
+        //     textContent: "×"
+        // })
+        // div.appendChild(deleteSightingButton);
 
 
-        sightingsList.appendChild(li);
+        sightingsList.appendChild(div);
 
 
 
@@ -227,15 +227,15 @@ async function loadSightings(){
 
 
 
-        deleteSightingButton.addEventListener('click', () => {   
-            if (confirm('Delete this sighting?')) deleteSighting(element.id);
-        });
+        // deleteSightingButton.addEventListener('click', () => {   
+        //     if (confirm('Delete this sighting?')) deleteSighting(element.id);
+        // });
 
 
     });    
 
     if(sightingsList.innerHTML == ""){
-        sightingsList.textContent = "there are no results matching this search"
+        sightingsList.textContent = "no sighting results"
     }
     
 }
