@@ -299,7 +299,7 @@ body {
     /*background: var(--green);*/
     border-radius: 12px;
 
-    margin: 0px 10px 10px 10px;
+    margin: 0px 10px 10px 5px;
     width: 30px;
     height: 30px;
     font-size: 1.5rem;
