@@ -261,7 +261,7 @@ body {
 
 .enlargedThumbnail{
     box-sizing: border-box;
-    width: 100%;
+    width: 95%;
     height: auto;
     margin: 0px auto 0px auto;
     border-radius: 10px;
@@ -269,7 +269,9 @@ body {
 }
 
 .enlargedSightingCaption{
-    margin-top: 0px;
+    margin: 0 0 20px auto;
+    font-size: 24px;
+    font-weight: bold;
 }
 
 .enlargedSightingBackButton{
@@ -277,10 +279,10 @@ body {
     padding: 0.25em;
     border-radius: 12px;
 
-    width: 75px;
+    width: 60px;
     height: 25px;
 
-    margin: auto auto 0px auto;
+    margin: 15px auto 0px auto;
 
     justify-self: flex-end;
     text-align: center;
@@ -290,6 +292,24 @@ body {
     cursor: pointer;
 
     color: #fff;
+}
+
+
+.enlargedSightingThreeDots{
+    /*background: var(--green);*/
+    border-radius: 12px;
+
+    margin: 0px 10px 10px 10px;
+    width: 30px;
+    height: 30px;
+    font-size: 1.5rem;
+
+    justify-self: flex-end;
+    align-self: flex-end;
+    text-align: center;
+    font-weight: bold;
+
+    cursor: pointer;
 }
 
 

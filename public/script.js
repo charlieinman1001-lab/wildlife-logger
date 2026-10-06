@@ -195,12 +195,23 @@ async function loadSightings(){
                 });
                 enlargedSighting.appendChild(enlargedThumbnail);
 
-                const enlargedCaption = document.createElement("h2"); ////add caption to enlarged sighting
+
+                const centerControls = document.createElement("div");
+                const enlargedCaption = document.createElement("span"); ////add caption to enlarged sighting
                 Object.assign(enlargedCaption, {
                     className: "enlargedSightingCaption",
                     textContent: `${element.species}`
                 })
-                enlargedSighting.appendChild(enlargedCaption);
+                centerControls.appendChild(enlargedCaption);
+
+                const threeDots = document.createElement("btn");
+                Object.assign(threeDots, {
+                    className: "enlargedSightingThreeDots",
+                    textContent: "⋮"
+                })
+                centerControls.appendChild(threeDots);
+
+                enlargedSighting.appendChild(centerControls);
 
 
                 const backButton = document.createElement("btn"); //create button to exit enlarged sighting
@@ -216,7 +227,18 @@ async function loadSightings(){
                 enlargedSighting.appendChild(backButton);
 
 
+
+
                 
+
+                threeDots.addEventListener('click', () => {   
+                    if (confirm('Delete this sighting?')) {
+                        deleteSighting(element.id);
+                        inspectSighting = false;
+                        enlargedSighting.remove();
+                        document.getElementById("backdrop").className = "";
+                    }
+                });
 
 
 
@@ -227,9 +249,6 @@ async function loadSightings(){
 
 
 
-        // deleteSightingButton.addEventListener('click', () => {   
-        //     if (confirm('Delete this sighting?')) deleteSighting(element.id);
-        // });
 
 
     });    
